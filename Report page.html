@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriReport | Raissa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../statics/Report.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="page-container">
+        <header class="main-header">
+            <div class="header-left">
+                <div class="grid-icons">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                
+                <div class="dropdown">
+    <button class="dropbtn">Dashboard▼</button>
+    <div class="dropdown-content">
+    <a href="AdminDashboard.html">Admin</a>
+    <a href="Dashboard.html">Dashboard</a>
+</div>
+</div>
+            </div>
+            
+            <h1>Report Page</h1>
+
+            
+            
+        </header>
+
+        <section class="card">
+            <div class="card-header">
+                <h2>View Report</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Farmers</th>
+                            <th>Quantity</th>
+                            <th>Revenue (FCFA)</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Maize</strong></td>
+                            <td>Raiss</td>
+                            <td>200</td>
+                            <td class="price">200,000</td>
+                            <td class="date">11-02-2024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rice</strong></td>
+                            <td>Mark</td>
+                            <td>400</td>
+                            <td class="price">100,000</td>
+                            <td class="date">14-01-2027</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bean</strong></td>
+                            <td>Yves</td>
+                            <td>500</td>
+                            <td class="price">300,000</td>
+                            <td class="date">15-01-2030</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tomatoes</strong></td>
+                            <td>Yann</td>
+                            <td>600</td>
+                            <td class="price">400,000</td>
+                            <td class="date">05-01-2026</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <h2>User Statistic</h2>
+            </div>
+            <div class="chart-box">
+                <canvas id="agriBarChart"></canvas>
+            </div>
+        </section>
+
+        <footer class="footer-card">
+            &copy; 2026 AgroConnect+ Platform | Support:agroconnectplus@gmail.com
+        </footer>
+    </div>
+
+    <script>
+        // Initializing the Green Bar Chart
+        const ctx = document.getElementById('agriBarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+                datasets: [{
+                    label: 'Quantity produced',
+                    data: [35, 45, 20, 42, 50, 30, 40, 50],
+                    backgroundColor: '#2c5530;', // Solid Green color from sketch
+                    borderColor: '#2c5530',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

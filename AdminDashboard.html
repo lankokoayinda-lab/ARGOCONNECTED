@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriMarket Admin Dashboard</title>
+        <link rel="stylesheet" href="../statics/AdminDashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <header class="main-header">
+            <div class="header-left">
+                <h1>Admin Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="dropdown">
+                    <button class="btn-edit">MENU▼</button>
+                    <div class="dropdown-content">
+                        <a href="Dashboard.html">Dashboard</a>
+                        <a href="Report page.html">Report</a>
+                        <a href="Profile.html"> My Profile</a>
+                        <a href="home.html"> home page</a>
+                        <a href="about us.html"> About us</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            
+            <div class="stat-card">
+                <h3>Total User</h3>
+                <p class="stat-value">120</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Product</h3>
+                <p class="stat-value">240</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Order</h3>
+                <p class="stat-value">89</p>
+            </div>
+            <div class="stat-card revenue">
+                <h3>Revenue</h3>
+                <p class="stat-value">85,200 FCFA</p>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2>Manage Users</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Raissa</td>
+                            <td>Farmer</td>
+                            <td><span class="badge active">Active</span></td>
+                            <td>
+                                <button class="btn-edit">UNBLOCK</button>
+                                <button class="btn-delete">BLOCK</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Yann</td>
+                            <td>Buyer</td>
+                            <td><span class="badge inactive">Inactive</span></td>
+                            <td>
+                                <button class="btn-edit">UNBLOCK</button>
+                                <button class="btn-delete">BLOCK</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mary</td>
+                            <td>Wholesaler</td>
+                            <td><span class="badge active">Active</span></td>
+                            <td>
+                                <button class="btn-edit">UNBLOCK</button>
+                                <button class="btn-delete">BLOCK</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2>User Statistics (Active vs Inactive)</h2>
+            <div class="chart-flex-container">
+                <div class="chart-box">
+                    <canvas id="userStatusChart"></canvas>
+                    
+                </div>
+            </div>
+        </section>
+
+        <footer class="dashboard-footer">
+            <p>Agroconnect+ Administration Panel</p>
+        </footer>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('userStatusChart').getContext('2d');
+        
+        new Chart(ctx, {// creates a new chart
+            type: 'pie',
+            data: {
+                labels: ['Active People', 'InActive People'],
+                datasets: [{
+                    data: [80, 40], 
+                    
+                    backgroundColor: ['#3366cc', '#ff9900'], 
+                    
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                
+                maintainAspectRatio: false,
+                
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { padding: 20, font: { size: 14 } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
