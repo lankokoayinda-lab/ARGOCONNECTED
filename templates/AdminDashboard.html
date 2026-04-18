@@ -1,56 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriMarket Admin Dashboard</title>
-        <link rel="stylesheet" href="../static/css/AdminDashboard.css">
+    <title>Agroconnect+ | Admin Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <link rel="stylesheet" href="../statics/AdminDashboard.css">
 </head>
 <body>
 
     <div class="dashboard-wrapper">
         <header class="main-header">
             <div class="header-left">
-                <h1>Admin Dashboard</h1>
+                <h1>Agroconnect+ Admin</h1>
             </div>
             <div class="header-right">
                 <div class="dropdown">
-                    <button class="btn-edit">MENU▼</button>
+                    <button class="btn-edit">MENU ▼</button>
                     <div class="dropdown-content">
                         <a href="Dashboard.html">Dashboard</a>
-                        <a href="Reportpage.html">Report</a>
-                        <a href="Profile.html"> My Profile</a>
-                        <a href="home.html"> home page</a>
-                        <a href="about us.html"> About us</a>
-                        <a href="logout.html">Logout</a>
+                        <a href="Report page.html">Reports</a>
+                        <a href="Profile.html">My Profile</a>
+                        <a href="home.html">Home</a>
+                        <a href="about us.html">About Us</a>
+                        <a href="#" style="color: #d32f2f;">Logout</a>
                     </div>
                 </div>
             </div>
         </header>
 
+        <!-- Stats -->
         <section class="stats-grid">
-            
             <div class="stat-card">
-                <h3>Total User</h3>
+                <h3>Total Users</h3>
                 <p class="stat-value">120</p>
             </div>
             <div class="stat-card">
-                <h3>Total Product</h3>
+                <h3>Total Products</h3>
                 <p class="stat-value">240</p>
             </div>
             <div class="stat-card">
-                <h3>Total Order</h3>
+                <h3>Total Orders</h3>
                 <p class="stat-value">89</p>
             </div>
             <div class="stat-card revenue">
-                <h3>Revenue</h3>
+                <h3>Total Revenue</h3>
                 <p class="stat-value">85,200 FCFA</p>
             </div>
         </section>
 
+        <!-- Manage Users -->
         <section class="content-card">
             <h2>Manage Users</h2>
             <div class="table-container">
@@ -61,7 +61,7 @@
                             <th>Name</th>
                             <th>Role</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,8 +71,8 @@
                             <td>Farmer</td>
                             <td><span class="badge active">Active</span></td>
                             <td>
-                                <button class="btn-edit">UNBLOCK</button>
-                                <button class="btn-delete">BLOCK</button>
+                                <button class="btn-edit">Unblock</button>
+                                <button class="btn-delete">Block</button>
                             </td>
                         </tr>
                         <tr>
@@ -81,8 +81,8 @@
                             <td>Buyer</td>
                             <td><span class="badge inactive">Inactive</span></td>
                             <td>
-                                <button class="btn-edit">UNBLOCK</button>
-                                <button class="btn-delete">BLOCK</button>
+                                <button class="btn-edit">Unblock</button>
+                                <button class="btn-delete">Block</button>
                             </td>
                         </tr>
                         <tr>
@@ -91,8 +91,8 @@
                             <td>Wholesaler</td>
                             <td><span class="badge active">Active</span></td>
                             <td>
-                                <button class="btn-edit">UNBLOCK</button>
-                                <button class="btn-delete">BLOCK</button>
+                                <button class="btn-edit">Unblock</button>
+                                <button class="btn-delete">Block</button>
                             </td>
                         </tr>
                     </tbody>
@@ -100,46 +100,52 @@
             </div>
         </section>
 
+        <!-- Chart Section -->
         <section class="content-card">
             <h2>User Statistics (Active vs Inactive)</h2>
             <div class="chart-flex-container">
                 <div class="chart-box">
                     <canvas id="userStatusChart"></canvas>
-                    
                 </div>
             </div>
         </section>
 
         <footer class="dashboard-footer">
-            <p>Agroconnect+ Administration Panel</p>
+            <p>&copy; 2026 Agroconnect+ | Administration Panel 🌱</p>
         </footer>
     </div>
 
     <script>
+        // User Status Pie Chart
         const ctx = document.getElementById('userStatusChart').getContext('2d');
         
-        new Chart(ctx, {// creates a new chart
+        new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Active People', 'InActive People'],
+                labels: ['Active Users', 'Inactive Users'],
                 datasets: [{
-                    data: [80, 40], 
-                    
-                    backgroundColor: ['#3366cc', '#ff9900'], 
-                    
+                    data: [80, 40],
+                    backgroundColor: ['#2c5530', '#f4a261'],
                     borderColor: '#ffffff',
-                    borderWidth: 2
+                    borderWidth: 3
                 }]
             },
             options: {
                 responsive: true,
-                
                 maintainAspectRatio: false,
-                
                 plugins: {
                     legend: {
                         position: 'right',
-                        labels: { padding: 20, font: { size: 14 } }
+                        labels: {
+                            padding: 25,
+                            font: { size: 15 },
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#2c5530',
+                        titleFont: { size: 14 },
+                        bodyFont: { size: 15 }
                     }
                 }
             }
