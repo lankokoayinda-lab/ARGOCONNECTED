@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agroconnect+ | Jeanne Nkoumou</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/profile.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>Agroconnect+</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../template/home.html">Home</a></li>
+        <li><a href="../template/about.html">About</a></li>
+        <li><a href="../template/Dashboard.html">Dashboard</a></li>
+        <li><a href="../template/Productpage.html">Products</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- PROFILE CARD -->
+    <div class="profile-card">
+      <img src="../image/css/tomatoes.jpeg" alt="Jeanne Nkoumou" class="profile-img">
+      <h2 id="profile-name">Jeanne Nkoumou</h2>
+      <p id="profile-role">Maize & Cassava Farmer</p>
+      
+      <div class="info-item">📍 <span id="profile-location">Yaoundé, Centre Region, Cameroon</span></div>
+      <div class="info-item">📞 <span id="profile-phone">+237 655 123 456</span></div>
+      <div class="info-item">✉️ <span id="profile-email">jeanne.nkoumou@gmail.com</span></div>
+      <div class="info-item">📅 Joined March 2021</div>
+
+      <button class="edit-btn" onclick="openEditModal()">✏️ Edit Profile</button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <div class="section">
+        <h2>About Me</h2>
+        <p id="profile-about">
+          I'm a smallholder farmer with over 6 years of experience in sustainable agriculture. 
+          I grow high-quality maize, cassava, and vegetables using eco-friendly methods. 
+          I'm always interested to connect with reliable buyers and agricultural experts through Agroconnect+.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Farm Details</h2>
+        <div class="details-grid">
+          <div class="detail-item"><strong>Farm Size:</strong> 5.6 hectares</div>
+          <div class="detail-item"><strong>Main Crops:</strong> Maize, Cassava, Vegetables</div>
+          <div class="detail-item"><strong>Annual Yield:</strong> \~16 tons</div>
+          <div class="detail-item"><strong>Farming Method:</strong> Organic & Sustainable</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>My Activity on Agroconnect+</h2>
+        <div class="activity-stats">
+          <div class="stat">
+            <strong id="products-listed">48</strong>
+            Products Listed
+          </div>
+          <div class="stat">
+            <strong id="orders-completed">130</strong>
+            Orders Completed
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT PROFILE MODAL -->
+  <div id="editModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <span class="close-btn" onclick="closeModal()">×</span>
+      </div>
+
+      <form id="editForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" value="Jeanne Nkoumou">
+
+        <label for="role">Role / Profession</label>
+        <input type="text" id="role" value="Maize & Cassava Farmer">
+
+        <label for="location">Location</label>
+        <input type="text" id="location" value="Yaoundé, Centre Region, Cameroon">
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" value="+237 655 123 456">
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" value="jeanne.nkoumou@gmail.com">
+
+        <label for="about">About Me</label>
+        <textarea id="about" rows="5">I'm a smallholder farmer with over 6 years of experience in sustainable agriculture. I grow high-quality maize, cassava, and vegetables using eco-friendly methods. I'm interested to connect with reliable buyers and agricultural experts through Agroconnect+.</textarea>
+
+        <div class="modal-actions">
+          <button type="button" onclick="closeModal()" style="padding: 12px 24px; background: var(--primary); color: #2c5530; border: none; border-radius: 8px; cursor: pointer;">Cancel</button>
+          <button type="button" onclick="saveProfile()" style="padding: 12px 28px; background: var(--primary); color: #2c5530; border: none; border-radius: 8px; cursor: pointer;">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Agroconnect+ | Connecting Farmers to Markets 🌱</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('editModal');
+
+    function openEditModal() {
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    function saveProfile() {
+      document.getElementById('profile-name').textContent = document.getElementById('name').value;
+      document.getElementById('profile-role').textContent = document.getElementById('role').value;
+      document.getElementById('profile-location').textContent = document.getElementById('location').value;
+      document.getElementById('profile-phone').textContent = document.getElementById('phone').value;
+      document.getElementById('profile-email').textContent = document.getElementById('email').value;
+      document.getElementById('profile-about').textContent = document.getElementById('about').value;
+
+      alert("✅ Profile updated successfully!");
+      closeModal();
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
