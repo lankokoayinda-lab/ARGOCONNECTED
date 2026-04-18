@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArgoConnect+</title>
+
+
+        <link rel="stylesheet" href="../static/css/Productpage.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">ArgoConnect+</div>
+    <nav>
+    
+        
+        <div class="dropdown">
+            <button class="dropbtn">Menu ▼</button>
+            <div class="dropdown-content">
+                <a href="home.html">Home</a>
+                <a href="Dashboard.html">Dashboard</a>
+                <a href="Profile.html">Profile</P></a>
+                <a href="About.html">About</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-card">Fresh Farm Products</div>
+</section>
+
+<main>
+    <h1 class="section-title">Our Products</h1>
+
+    <div class="product-grid">
+
+        <!-- Tomatoes -->
+        <div class="product-card">
+            <img src="../static/images/tomatoes.jpeg" class="product-img">
+            <p>Premium organic tomatoes</p>
+            <button class="more-btn" onclick="openModal('Tomatoes', [
+                {name:'Mama Chantal', price:'1000 FCFA'},
+                {name:'Farmer John', price:'1200 FCFA'},
+                {name:'AgroFarm Ltd', price:'1100 FCFA'}
+            ])">More</button>
+        </div>
+
+        <!-- Spinach -->
+        <div class="product-card">
+            <img src="../static/images/lettus.jpeg" class="product-img">
+            <p>Fresh green spinach</p>
+            <button class="more-btn" onclick="openModal('Spinach', [
+                {name:'GreenFarm', price:'800 FCFA'},
+                {name:'Mama Rose', price:'700 FCFA'}
+            ])">More</button>
+        </div>
+
+        <!-- Carrots -->
+        <div class="product-card">
+            <img src="../static/images/carrot.jpeg" class="product-img">
+            <p>Crunchy carrots</p>
+            <button class="more-btn" onclick="openModal('Carrots', [
+                {name:'Village Farm', price:'900 FCFA'},
+                {name:'BioGrow', price:'850 FCFA'}
+            ])">More</button>
+        </div>
+
+        <!-- Honey -->
+        <div class="product-card">
+            <img src="../static/images/honey.jpeg" class="product-img">
+            <p>Natural honey</p>
+            <button class="more-btn" onclick="openModal('Honey', [
+                {name:'BeeFarm', price:'5000 FCFA'},
+                {name:'Golden Hive', price:'4800 FCFA'}
+            ])">More</button>
+        </div>
+
+        <!-- Oil -->
+        <div class="product-card">
+            <img src="../static/images/pamloil.jpeg" class="product-img">
+            <p>Pure oil</p>
+            <button class="more-btn" onclick="openModal('Oil', [
+                {name:'Organic Oil Co', price:'7000 FCFA'},
+                {name:'NaturePress', price:'6500 FCFA'}
+            ])">More</button>
+        </div>
+
+        <!-- Eggs -->
+        <div class="product-card">
+            <img src="../static/images/eggs.jpeg" class="product-img">
+            <p>Farm fresh eggs</p>
+            <button class="more-btn" onclick="openModal('Eggs', [
+                {name:'Poultry Farm', price:'3000 FCFA'},
+                {name:'Mama Poultry', price:'2800 FCFA'}
+            ])">More</button>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 ArgoConnect+ | Connecting Farmers to You</p>
+</footer>
+
+<!-- MODAL -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="farmerList"></div>
+    </div>
+</div>
+
+<script>
+function openModal(name, farmers) {
+    document.getElementById('modalTitle').innerText = name;
+
+    let html = "";
+
+    farmers.forEach(f => {
+        html += `
+            <div class="farmer-card">
+                <h4>${f.name}</h4>
+                <p>Price: ${f.price}</p>
+                <button class="contact-btn">Contact</button>
+            </div>
+        `;
+    });
+
+    document.getElementById('farmerList').innerHTML = html;
+    document.getElementById('productModal').style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('productModal').style.display = "none";
+}
+
+window.onclick = function(e) {
+    let modal = document.getElementById('productModal');
+    if (e.target == modal) {
+        modal.style.display = "flex";
+    }
+}
+</script>
+
+</body>
+</html>
