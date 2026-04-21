@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agroconnect+ Login</title>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<!-- Forgot Password Modal -->
+<div id="forgotModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Reset Password</h3>
+        <p>Enter your email to receive reset instructions</p>
+
+        <input type="email" placeholder="Enter your email" required>
+        <button class="btn">Send Reset Link</button>
+        <script>
+    function openModal() {
+        document.getElementById("forgotModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("forgotModal").style.display = "none";
+    }
+
+    // Close when clicking outside
+    window.onclick = function(event) {
+        let modal = document.getElementById("forgotModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+    </div>
+
+</div>
+
+
+<body>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>🌱 AgroConnect+</h2>
+            <p class="subtitle">Login to your account</p>
+
+            <form action="#" method="POST">
+
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+
+                <div class="extra">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" onclick="openModal()">Forgot Password?</a>
+            
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+
+                
+                <p class="signup-text">Don't have an account?
+    <a href="register.html">Sign Up</a>
+</p>
+                </p>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
