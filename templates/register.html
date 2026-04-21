@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - AgroConnect+</title>
+      
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            e.preventDefault(); 
+            alert("Passwords do not match!");
+        }
+    });
+</script>
+<body>
+
+<div class="container">
+    <div class="login-box">
+        <h2>🌱 AgroConnect+</h2>
+
+        <form action="http://localhost:3000/register" method="POST">
+
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="input-box">
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+</div>
+
+            <button class="btn" type="submit">Register</button>
+
+            <p class="signup">
+    Already have an account? <a href="login.html">Login</a>
+</p>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
